@@ -32,6 +32,7 @@ int percentPot;
 int lightLED;
 
 void setup() {
+  //Setup LCD
   lcd.init();
   lcd.backlight();
 }
