@@ -4,7 +4,7 @@
 
 // Chọn chân Digital cho Nút nhấn.
 // Select the Digital pin for Button.
-#define BUTTON_PIN 11
+#define BUTTON_PIN A3
 
 // Khởi tạo "OneButton" cho Nút nhấn với cấu hình sau.
 // Initialize "OneButton" for the Button with the following config.
@@ -23,7 +23,7 @@ void setup()
   // Khởi động kết nối Serial UART ở tốc độ 9600 để truyền dữ liệu lên máy tính.
   // Start the Serial UART connection at 9600 to transfer data to the computer.
   Serial.begin(9600);
-
+  Serial.println("Press Button");
   // Liên kết hàm "count" được gọi trên một sự kiện 1 Click.
   // Link the "count" function to be called on a single click event.
   btn.attachClick(count);

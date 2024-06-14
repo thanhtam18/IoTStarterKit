@@ -1,7 +1,9 @@
 // Chọn chân Analog đọc cảm biến.
 // Select the Analog pin to read the sensor.
-#define SENSOR_PIN A1
-
+#define LDR_PIN A1
+//Giá trị max và min của cảm biến
+#define LDR_MIN_VALUE 0
+#define LDR_MAX_VALUE 691
 // Lưu giá trị Analog đọc từ cảm biến.
 // Stores the Analog value read from the sensor.
 int value;
@@ -21,15 +23,18 @@ void loop()
 {
   // Đọc giá trị Analog.
   // Read Analog value.
-  value = analogRead(SENSOR_PIN);
+  value = analogRead(LDR_PIN);
 
   // Chuyển đổi sang thang đo (%).
   // Convert to scale (%).
-  percent = map(value, 0, 676, 100, 0);
+  percent = map(value, LDR_MIN_VALUE, LDR_MAX_VALUE, 100, 0);
 
   // Truyền giá trị đo được của cảm biến lên máy tính.
   // Transmit the measured value of the sensor to the computer.
-  Serial.print("[LDR] Light Detector in %: ");
+  Serial.print("Giá trị thực: ");
+  Serial.print(value);
+  Serial.print("      ");
+  Serial.print("Thang đo %: ");
   Serial.println(percent);
 
   // Chờ 0,5s mới đo lại.

@@ -1,9 +1,11 @@
 // Chọn chân Digital điều khiển LED.
 // Select the Digital pin to control LED.
-#define LED_PIN 10
+#define LED_PIN 11
 
-void setup()
-{
+void setup() {
+  // Khởi động kết nối Serial UART ở tốc độ 9600 để truyền dữ liệu lên máy tính.
+  // Start the Serial UART connection at 9600 to transfer data to the computer.
+  Serial.begin(9600);
   // Cấu hình đây là chân Digital Output.
   // Config this is Digital Output.
   pinMode(LED_PIN, OUTPUT);
@@ -13,15 +15,16 @@ void setup()
   digitalWrite(LED_PIN, LOW);
 }
 
-void loop()
-{
+void loop() {
   // Bật LED trong 1s.
   // Turn on LED for 1 seconds.
   digitalWrite(LED_PIN, HIGH);
+  Serial.println("Led On");
   delay(1000);
 
   // Tắt LED trong 1s.
   // Turn off LED for 1 seconds.
   digitalWrite(LED_PIN, LOW);
+  Serial.println("Led Off");
   delay(1000);
 }
